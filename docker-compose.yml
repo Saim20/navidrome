@@ -3,7 +3,7 @@ services:
     image: deluan/navidrome:latest
     container_name: navidrome
     ports:
-      - "8080:4533" # Navidrome default HTTP port
+      - "4533:4533" # Navidrome default HTTP port
     volumes:
       - ./data:/data # Persistent data storage
       - ./music:/music # Your music library
@@ -13,14 +13,3 @@ services:
       - ND_SCANSCHEDULE=1h
       # Add more Navidrome environment variables as needed
     restart: unless-stopped
-    nginx:
-      image: nginx:latest
-      container_name: nginx-proxy
-      ports:
-        - "443:443" # HTTPS reverse proxy for IPv4/IPv6
-      volumes:
-        - ./nginx-ssl.conf:/etc/nginx/nginx.conf:ro
-        - ./certs:/etc/nginx/certs:ro
-      depends_on:
-        - navidrome
-      restart: unless-stopped
