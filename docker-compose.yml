@@ -12,4 +12,4 @@ services:
       - ND_SESSIONTIMEOUT=24h
       - ND_SCANSCHEDULE=1h
       # Add more Navidrome environment variables as needed
-    restart: unless-stopped
+    restart: always
