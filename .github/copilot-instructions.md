@@ -21,7 +21,7 @@ Common tasks and exact patterns
 - Persist additional host directories: add new `volumes:` under the service. Use relative paths (e.g., `./data:/data`) to keep behavior consistent.
 - TLS certs for Nginx: `nginx-ssl.conf` references `/etc/nginx/certs/fullchain.pem` and `privkey.pem`. Ensure the container running Nginx mounts a host folder or secret there.
 - Configure file server authentication: edit `docker-compose.yml` under `environment:` for the `filebrowser` service. Set `FB_NOAUTH=false` and add `FB_USERNAME`/`FB_PASSWORD` for basic auth.
-- Change file server port: edit the `ports:` mapping in `docker-compose.yml` for the `filebrowser` service (default host port is `8080`).
+- Change file server port: edit the `ports:` mapping in `docker-compose.yml` for the `filebrowser` service (default host port is `5677`).
 
 Patterns to follow when editing
 - Minimal, incremental edits. This repo is configuration-first; avoid large refactors.
