@@ -18,7 +18,7 @@ services:
     image: filebrowser/filebrowser:latest
     container_name: filebrowser
     ports:
-      - "8080:80" # Filebrowser web interface port (changed to 8080 per instructions)
+      - "5677:80" # Filebrowser web interface port (changed to 8080 per instructions)
     volumes:
       - ./music:/srv # Mount music folder as filebrowser root
       - ./data/filebrowser.db:/database.db # Persistent database
