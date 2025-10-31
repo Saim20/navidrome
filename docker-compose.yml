@@ -13,3 +13,16 @@ services:
       - ND_SCANSCHEDULE=1h
       # Add more Navidrome environment variables as needed
     restart: always
+
+  filebrowser:
+    image: filebrowser/filebrowser:latest
+    container_name: filebrowser
+    ports:
+      - "5678:5678" # Filebrowser web interface port
+    volumes:
+      - ./music:/srv # Mount music folder as filebrowser root
+      - ./data/filebrowser:/config # Persistent config for filebrowser
+    environment:
+      - FB_BASEURL=/
+      - FB_NOAUTH=true # Disable authentication for simplicity; enable in production
+    restart: always
