@@ -18,14 +18,10 @@ services:
     image: filebrowser/filebrowser:latest
     container_name: filebrowser
     ports:
-      - "5677:80" # Filebrowser web interface port
+      - "8080:80" # Filebrowser web interface port (changed to 8080 per instructions)
     volumes:
       - ./music:/srv # Mount music folder as filebrowser root
-      - ./data/filebrowser.db:/database/filebrowser.db # Persistent database
-      - ./data/filebrowser-config.json:/config/settings.json # Persistent settings
+      - ./data/filebrowser.db:/database.db # Persistent database
     environment:
-      - FB_BASEURL=/
       - FB_NOAUTH=true # Disable authentication for simplicity; enable in production
-      - FB_PORT=80
-      - FB_ADDRESS=0.0.0.0
     restart: always
