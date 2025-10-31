@@ -18,7 +18,7 @@ services:
     image: filebrowser/filebrowser:latest
     container_name: filebrowser
     ports:
-      - "5678:5678" # Filebrowser web interface port
+      - "5677:5677" # Filebrowser web interface port
     volumes:
       - ./music:/srv # Mount music folder as filebrowser root
       - ./data/filebrowser:/config # Persistent config for filebrowser
